@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+        margin: 0; padding: 0;
+        }
+        .btn{
+            transform: translateY(150%); 
+        }
+        #test{ 
+       display: flex;
+      justify-content: center;
+      align-items: end;
+      height: calc(100vh - 100px);    
+      background-position: center;
+      background-size: auto 100%;
+      }
+      #test button{
+        position: relative;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        border: 0;
+      }
+      .pink{
+        background-image: url(https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/a0256e16-28ea-4180-bcc1-856c16734f34.jpg);
+        background-repeat:no-repeat !important;
+        }
+     .skyblue{ background-image: url(https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/c9b60089-e58a-404c-a71c-9f0163ac2fb4.jpg);
+        background-repeat: no-repeat !important;}
+        .blue{background-image: url(https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/5e7d8ec7-b54c-4b7e-91c1-7f4ad0b86ed1.jpg);
+        background-repeat: no-repeat !important;}
+      .active{border: yellowgreen solid !important;
+              background-color:red !important;
+              color: white !important;}
+    </style>
+    <script
+     src="https://code.jquery.com/jquery-2.2.4.js"
+     integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+     crossorigin="anonymous">
+    </script>
+    <script>
+           $(document).ready(function(){ //화면이 열리면 기능해라
+        let count =0;    // 초기값 , 인터벌 돌리려고
+       $("#test button").click(function(){ //선택자와 이벤트가 지정된 함수선언 아이디가 테스트인 버튼을 클릭했을때 기능해라
+       $("#test").removeClass().addClass($(this).data("color")); // 바디에 클래스 지워주고 다시 그것들(버튼)에 데이타색깔을 넣어
+       $("#test button").removeClass("active") // 아이디기테스트인 버튼을 눌렀을때 액티브 지워
+       $(this).addClass("active") // (버튼에 다시 액티브 넣어주랑)
+
+       }) 
+       
+       setInterval(function(){
+        count++; // 변수 증가
+        count %= $("#test button").length; //변수의 돌아가는 수는 아이디가테스트인 버튼의 렌스보다 작을때
+        $("#test button").eq(count).click(); //반드시 선언식 밑에 위치해야한다
+       },2000) //1초에 누를게
+  
+       
+    }) 
+    </script>
+     
+</head>
+<body >
+    <section id="test" class="pink">
+        <div class="btn">
+            <button data-color="pink" class="active">pink</button>
+            <button data-color="skyblue">skyblue</button>
+            <button data-color="blue">blue</button>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+			  src="https://code.jquery.com/jquery-2.2.4.js"
+			  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+			  crossorigin="anonymous">
+   </script>
+   <script>
+    $(document).ready(function(){
+       $("#btn button").click(function(){
+        bodybg($(this).html())
+        butnbg($(this).html())
+
+       })
+       
+        function bodybg(t){ //매개인자 함수
+            $("body").css("background",t);
+            
+        }
+        function butnbg(t){ 
+            $("button").css("color",t);
+            
+        }
+
+    })
+   </script>
+   <style>
+     .test{
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  }
+  .btn{
+    border-radius: 50%;
+    width: 100px;
+   height: 100px;
+   position: relative;
+
+  }
+   </style>
+</head>
+<body>
+<section>
+    <div id="btns" class="test">
+        <button class="btn">pink</button>
+        <button class="btn">skyblue</button>
+        <button class="btn">yellow</button>
+    </div>
+</section>
+</body>
+</html>
